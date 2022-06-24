@@ -1,7 +1,6 @@
 package com.hoaxify.ws.user;
 
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,19 +45,6 @@ public class UserController {
 		User user = userService.getByUsername(username);
 		return new UserVM(user);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
