@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hoaxify.ws.shared.CurrentUser;
-import com.hoaxify.ws.shared.Views;
 import com.hoaxify.ws.user.User;
 import com.hoaxify.ws.user.UserRepository;
+import com.hoaxify.ws.user.vm.UserVM;
 
 @RestController
 public class AuthController {
@@ -20,12 +20,11 @@ public class AuthController {
 	UserRepository userRepository;
 		
 	@PostMapping("/api/1.0/auth")
-	@JsonView(Views.Base.class)
-	ResponseEntity<?> handleAuthentication(@CurrentUser User user) {
+	UserVM handleAuthentication(@CurrentUser User user) {
 //	ResponseEntity<?> handleAuthentication(Authentication authentication) {		
 //		User user = (User) authentication.getPrincipal();
 		
-		return ResponseEntity.ok(user);
+		return new UserVM(user);
 	}
 	
 }
