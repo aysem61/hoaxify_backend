@@ -19,8 +19,6 @@ public class UserService {
 		this.passwordEncoder = passwordEncoder;
 	}
 	
-	
-	
 	public void save(User user) {
 		String encryptedPassword = this.passwordEncoder.encode(user.getPassword());
 		user.setPassword(encryptedPassword);
@@ -28,16 +26,12 @@ public class UserService {
 		
 	}
 
-
-
 	public Page<User> getUsers(Pageable page, User user) {
 		if(user != null) {
 			return userRepository.findByUsernameNot(user.getUsername(), page);
 		}
 		return userRepository.findAll(page);
 	}
-
-
 
 	public User getByUsername(String username) {
 		User inDB = userRepository.findByUsername(username);
