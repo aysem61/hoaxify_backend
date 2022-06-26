@@ -20,6 +20,7 @@ public class ErrorHandler implements ErrorController  {
 	@Autowired
 	private ErrorAttributes errorAttributes;
 	
+	
 	@RequestMapping("/error")
 	ApiError handleError(WebRequest webRequest) {
 		Map<String, Object> attributes = 
@@ -43,6 +44,8 @@ public class ErrorHandler implements ErrorController  {
 		
 		return error;
 	}
+	
+	
 	
 
 }
