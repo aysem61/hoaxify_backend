@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 import com.hoaxify.ws.user.User;
 import com.hoaxify.ws.user.UserRepository;
 
+
 @Service
 public class UserAuthService implements UserDetailsService {
 	
 	@Autowired
 	UserRepository userRepository;
+	
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -25,5 +27,6 @@ public class UserAuthService implements UserDetailsService {
 		
 		return userInDB;
 	}
+	
 
 }
