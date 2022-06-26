@@ -15,7 +15,6 @@ server:
 #spring.datasource.password=  
 #spring.jpa.database-platform=org.hibernate.dialect.H2Dialect  
 
-
 spring:
   jpa:
     properties:
@@ -33,5 +32,25 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: 
+  profiles:
+    active:
+    - dev
+hoaxify:
+  upload-path: picture-storage
 
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+hoaxify:
+  upload-path: storage-production
+  
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+hoaxify:
+  upload-path: storage-dev
   
