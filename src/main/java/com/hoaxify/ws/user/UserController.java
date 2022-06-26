@@ -64,8 +64,6 @@ public class UserController {
 	}
 	
 	
-	
-	
 //	@ExceptionHandler(MethodArgumentNotValidException.class)
 //	@ResponseStatus(HttpStatus.BAD_REQUEST)
 //	public ApiError handleValidationException(MethodArgumentNotValidException exception) {
@@ -83,4 +81,6 @@ public class UserController {
 //		return error;
 //	}
 
+	
+	
 }
