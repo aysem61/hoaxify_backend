@@ -18,6 +18,7 @@ public class PageSerializer /* extends JsonSerializer<Page<?>> */ {
 		gen.writeStartObject();
 		gen.writeFieldName("content");
 		serializers.defaultSerializeValue(value.getContent(), gen);
+		
 		gen.writeObjectField("pageable", value.getPageable());
 		gen.writeBooleanField("last", value.isLast());
 		gen.writeNumberField("totalPages", value.getTotalPages());
@@ -30,5 +31,7 @@ public class PageSerializer /* extends JsonSerializer<Page<?>> */ {
 		gen.writeEndObject();
 	}*/
 
+	
+	
 	
 }
