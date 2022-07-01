@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
+import com.hoaxify.ws.hoax.Hoax;
+import com.hoaxify.ws.hoax.HoaxService;
+import com.hoaxify.ws.hoax.vm.HoaxSubmitVM;
 import com.hoaxify.ws.user.User;
 import com.hoaxify.ws.user.UserService;
 
@@ -18,7 +21,7 @@ public class WsApplication {
 	
 	@Bean
 	@Profile("dev")
-	CommandLineRunner createInitialUsers(UserService userService) {
+	CommandLineRunner createInitialUsers(UserService userService, HoaxService hoaxService) {
 		
 		return  (args) -> {
 			
@@ -28,9 +31,13 @@ public class WsApplication {
 				user.setDisplayName("display" + i);
 				user.setPassword("P4ssword");
 				userService.save(user);
+				for(int j = 1; j <= 20 ; j++) {
+					HoaxSubmitVM hoax = new HoaxSubmitVM();
+					hoax.setContent("hoax ( " + j + ") from user (" + i + ")");
+					//hoax.setContent("hoax from user " + i);
+					hoaxService.save(hoax, user);
+				}
 			}
-				
-				
 				
 		};
 	}

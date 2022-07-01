@@ -26,11 +26,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http.httpBasic().authenticationEntryPoint(new AuthEntryPoint());
 		
+		http.headers().frameOptions().disable();
+		
 		http
 			.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/api/1.0/auth").authenticated()
 				.antMatchers(HttpMethod.PUT, "/api/1.0/users/{username}").authenticated()
-			//.antMatchers(HttpMethod.GET, "/secured").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/1.0/hoaxes").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/1.0/hoax-attachments").authenticated()
+				// "/api/1.0/hoax-attachments"
 			.and()
 			.authorizeRequests().anyRequest().permitAll();
 		

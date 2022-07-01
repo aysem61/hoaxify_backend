@@ -11,5 +11,17 @@ import lombok.Data;
 public class AppConfiguration {
 	
 	private String uploadPath;
+	
+	private String profileStorage = "profile";
+	
+	private String attachmentStorage = "attachments";
+	
+	public String getProfileStoragePath() {
+		return new StringBuilder(uploadPath).append("/").append(profileStorage).toString();
+	}
+	
+	public String getAttachmentStoragePath() {
+		return new StringBuilder(uploadPath).append("/").append(attachmentStorage).toString();
+	}
 
 }

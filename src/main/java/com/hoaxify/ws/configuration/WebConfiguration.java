@@ -3,6 +3,7 @@ package com.hoaxify.ws.configuration;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,11 @@ public class WebConfiguration implements WebMvcConfigurer {
 	@Autowired
 	private AppConfiguration appConfiguration;
 	
+//	@Bean
+//	public Tika tika() {
+//		return new Tika();
+//	}
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry
@@ -28,12 +34,18 @@ public class WebConfiguration implements WebMvcConfigurer {
 	@Bean
 	CommandLineRunner createStorageDirectories() {
 		return (args) -> {
-			File folder = new File(appConfiguration.getUploadPath());
-			boolean folderExist = folder.exists() && folder.isDirectory();
-			if(!folderExist) {
-				folder.mkdir();
-			}
+			createFolder(appConfiguration.getUploadPath());
+			createFolder(appConfiguration.getProfileStoragePath());
+			createFolder(appConfiguration.getAttachmentStoragePath());
 		};
+	}
+
+	private void createFolder(String path) {
+		File folder = new File(path);
+		boolean folderExist = folder.exists() && folder.isDirectory();
+		if(!folderExist) {
+			folder.mkdir();
+		}
 	}
 
 }
