@@ -44,8 +44,5 @@ public class ErrorHandler implements ErrorController  {
 		
 		return error;
 	}
-	
-	
-	
 
 }
