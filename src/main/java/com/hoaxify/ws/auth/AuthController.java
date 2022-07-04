@@ -14,11 +14,14 @@ import com.hoaxify.ws.user.User;
 import com.hoaxify.ws.user.UserRepository;
 import com.hoaxify.ws.user.vm.UserVM;
 
+
 @RestController
 public class AuthController {
 	
+	
 	@Autowired
 	AuthService authService;
+	
 		
 	@PostMapping("/api/1.0/auth")
 	AuthResponse handleAuthentication(@RequestBody Credentials credentials) {
