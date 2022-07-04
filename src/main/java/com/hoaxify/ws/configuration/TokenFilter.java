@@ -16,10 +16,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.hoaxify.ws.auth.AuthService;
 
+
 public class TokenFilter extends OncePerRequestFilter {
+	
 	
 	@Autowired
 	AuthService authService;
+	
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
