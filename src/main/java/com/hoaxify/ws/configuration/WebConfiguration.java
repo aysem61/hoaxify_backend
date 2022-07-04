@@ -18,10 +18,12 @@ public class WebConfiguration implements WebMvcConfigurer {
 	@Autowired
 	private AppConfiguration appConfiguration;
 	
+	
 //	@Bean
 //	public Tika tika() {
 //		return new Tika();
 //	}
+	
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
