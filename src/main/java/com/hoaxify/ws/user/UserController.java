@@ -3,7 +3,6 @@ package com.hoaxify.ws.user;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -28,7 +27,6 @@ import com.hoaxify.ws.user.vm.UserVM;
 @RequestMapping("/api/1.0")
 public class UserController {
 	
-	@Autowired
 	private final UserService userService;
 
 	public UserController(UserService userService) {
